@@ -10,9 +10,7 @@ import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.mapred.Task;
 import org.apache.hadoop.mapreduce.Counters;
 import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.TaskCounter;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormatCounter;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
@@ -143,9 +141,9 @@ public class RowCounterMRDriver extends Configured implements Tool {
             sb.append("Job Status: Successful.\n");
             Counters counters = job.getCounters();
 
-            sb.append("Input Records: " + counters.findCounter(TaskCounter.MAP_INPUT_RECORDS).getValue());
+            sb.append("Input Records: " + counters.findCounter(Task.Counter.MAP_INPUT_RECORDS).getValue());
             sb.append("\n");
-            sb.append("Read Bytes: " + counters.findCounter(FileInputFormatCounter.BYTES_READ).getValue());
+            sb.append("Read Bytes: " + counters.findCounter(FileInputFormat.Counter.BYTES_READ).getValue());
             sb.append("\n");
         } else {
             sb.append("Job Status: failed." + "\n");
