@@ -6,7 +6,7 @@
     <groupId>rowcounterme</groupId>
     <artifactId>rowcountermr</artifactId>
     <packaging>jar</packaging>
-    <version>0.1</version>
+    <version>0.1-hadoop-${hadoop-version}</version>
 
     <properties>
         <hadoop-version>1.2.1</hadoop-version>
